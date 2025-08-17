@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<section class="card form-card">
+  <h2>Edit Post</h2>
+
+  <% if (typeof error !== "undefined" && error) { %>
+    <div class="alert"><%= error %></div>
+  <% } %>
+
+  <form action="/posts/<%= post.id %>/edit" method="POST">
+    <label for="title">Title</label>
+    <input id="title" name="title" type="text" value="<%= post.title %>" required />
+
+    <label for="content">Content</label>
+    <textarea id="content" name="content" rows="10" required><%= post.content %></textarea>
+
+    <div class="actions">
+      <a class="btn" href="/posts/<%= post.id %>">Cancel</a>
+      <button class="btn primary" type="submit">Save Changes</button>
+    </div>
+  </form>
+</section>
+
+<%- include('partials/footer') %>

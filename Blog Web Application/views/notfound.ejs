@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+
+<section class="card">
+  <h2>Not Found</h2>
+  <% if (id) { %>
+    <p>We couldn’t find a post with id <code><%= id %></code>.</p>
+  <% } else { %>
+    <p>That page does not exist.</p>
+  <% } %>
+  <a class="btn" href="/">Go Home</a>
+</section>
+
+<%- include('partials/footer') %>

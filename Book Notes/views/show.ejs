@@ -1,0 +1,36 @@
+<%- include('partials/header', { pageTitle: book.title }) %>
+
+<article class="card post-full">
+  <div class="book-header">
+    <div class="cover-wrap lg">
+      <% if (book.isbn) { %>
+        <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-L.jpg"
+             alt="Cover for <%= book.title %>" onerror="this.style.display='none'">
+      <% } %>
+    </div>
+    <div>
+      <h1 class="post-title"><%= book.title %></h1>
+      <p class="muted"><%= book.author || 'Unknown Author' %></p>
+      <p class="muted">
+        Rating: <%= book.rating || '—' %> / 5
+        <% if (book.date_read) { %> · Read: <%= new Date(book.date_read).toLocaleDateString() %><% } %>
+      </p>
+      <p class="muted">Added <%= new Date(book.created_at).toLocaleString() %></p>
+    </div>
+  </div>
+
+  <% if (book.notes) { %>
+    <h3>Notes</h3>
+    <div class="post-content"><%= book.notes %></div>
+  <% } %>
+
+  <div class="actions">
+    <a class="btn" href="/">← Back</a>
+    <a class="btn" href="/books/<%= book.id %>/edit">Edit</a>
+    <form action="/books/<%= book.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Delete this entry?');">
+      <button class="btn danger" type="submit">Delete</button>
+    </form>
+  </div>
+</article>
+
+<%- include('partials/footer') %>

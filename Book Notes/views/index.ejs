@@ -1,0 +1,50 @@
+<%- include('partials/header', { pageTitle: 'Your Books' }) %>
+
+<section class="controls card">
+  <form method="GET" action="/">
+    <label for="sort">Sort by:</label>
+    <select id="sort" name="sort" onchange="this.form.submit()">
+      <option value="recency" <%= sort==='recency' ? 'selected' : '' %>>Recency</option>
+      <option value="rating"  <%= sort==='rating'  ? 'selected' : '' %>>Rating</option>
+      <option value="title"   <%= sort==='title'   ? 'selected' : '' %>>Title</option>
+    </select>
+    <noscript><button class="btn" type="submit">Apply</button></noscript>
+  </form>
+  <a class="btn primary" href="/books/new">+ Add Book</a>
+</section>
+
+<% if (error) { %><div class="alert"><%= error %></div><% } %>
+
+<section class="book-grid">
+  <% if (books.length === 0) { %>
+    <p class="muted">No books yet. Click "Add Book" to start.</p>
+  <% } %>
+
+  <% books.forEach(book => { %>
+    <article class="book-card card">
+      <div class="cover-wrap">
+        <% if (book.isbn) { %>
+          <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg"
+               alt="Cover for <%= book.title %>" onerror="this.style.display='none'"/>
+        <% } %>
+      </div>
+      <div class="book-meta">
+        <h3 class="book-title"><a href="/books/<%= book.id %>"><%= book.title %></a></h3>
+        <p class="muted"><%= book.author || 'Unknown Author' %></p>
+        <p class="muted">Rating: <%= book.rating || '—' %> / 5</p>
+        <% if (book.date_read) { %>
+          <p class="muted">Read: <%= new Date(book.date_read).toLocaleDateString() %></p>
+        <% } %>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/books/<%= book.id %>">View</a>
+        <a class="btn" href="/books/<%= book.id %>/edit">Edit</a>
+        <form action="/books/<%= book.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Delete this entry?');">
+          <button class="btn danger" type="submit">Delete</button>
+        </form>
+      </div>
+    </article>
+  <% }) %>
+</section>
+
+<%- include('partials/footer') %>

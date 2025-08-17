@@ -1,0 +1,26 @@
+{
+  "name": "book-notes-capstone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Book notes app with Express, EJS, PostgreSQL and Open Library API integration.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "db:create": "psql -f migrations/001_create_tables.sql"
+  },
+  "keywords": ["express", "ejs", "postgres", "books", "openlibrary"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

@@ -1,0 +1,33 @@
+<%- include('partials/header', { pageTitle: `Edit: ${book.title}` }) %>
+
+<section class="card form-card">
+  <h2>Edit Book</h2>
+  <% if (error) { %><div class="alert"><%= error %></div><% } %>
+
+  <form action="/books/<%= book.id %>?_method=PUT" method="POST">
+    <label>Title</label>
+    <input type="text" name="title" value="<%= book.title %>" required>
+
+    <label>Author</label>
+    <input type="text" name="author" value="<%= book.author || '' %>">
+
+    <label>ISBN (for cover)</label>
+    <input type="text" name="isbn" value="<%= book.isbn || '' %>">
+
+    <label>Rating (1–5)</label>
+    <input type="number" name="rating" min="1" max="5" value="<%= book.rating || '' %>">
+
+    <label>Date Read</label>
+    <input type="date" name="date_read" value="<%= book.date_read ? new Date(book.date_read).toISOString().slice(0,10) : '' %>">
+
+    <label>Notes</label>
+    <textarea name="notes" rows="8"><%= book.notes || '' %></textarea>
+
+    <div class="actions">
+      <a class="btn" href="/books/<%= book.id %>">Cancel</a>
+      <button class="btn primary" type="submit">Save Changes</button>
+    </div>
+  </form>
+</section>
+
+<%- include('partials/footer') %>

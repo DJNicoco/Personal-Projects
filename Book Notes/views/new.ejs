@@ -1,0 +1,33 @@
+<%- include('partials/header', { pageTitle: 'Add Book' }) %>
+
+<section class="card form-card">
+  <h2>Add a Book</h2>
+  <% if (error) { %><div class="alert"><%= error %></div><% } %>
+
+  <form action="/books" method="POST">
+    <label>Title</label>
+    <input type="text" name="title" value="<%= values.title || '' %>" required>
+
+    <label>Author</label>
+    <input type="text" name="author" value="<%= values.author || '' %>">
+
+    <label>ISBN (for cover)</label>
+    <input type="text" name="isbn" value="<%= values.isbn || '' %>" placeholder="e.g. 9780143127741">
+
+    <label>Rating (1–5)</label>
+    <input type="number" name="rating" min="1" max="5" value="<%= values.rating || '' %>">
+
+    <label>Date Read</label>
+    <input type="date" name="date_read" value="<%= values.date_read || '' %>">
+
+    <label>Notes</label>
+    <textarea name="notes" rows="8"><%= values.notes || '' %></textarea>
+
+    <div class="actions">
+      <a class="btn" href="/">Cancel</a>
+      <button class="btn primary" type="submit">Save</button>
+    </div>
+  </form>
+</section>
+
+<%- include('partials/footer') %>

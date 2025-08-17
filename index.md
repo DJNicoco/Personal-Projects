@@ -10,4 +10,4 @@ This repository includes documentation for my personal projects, inspired by cap
 
 - **Blog Web Application** — In-memory CRUD app (Express, EJS).
   
-  ➜ [Read the project README](./Blog%20Web%20Application/README-Blog-Web-Application.md)  
+  ➜ [Read the project README](./Blog%20Web%20Application/README-Blog-Web-Application.md) 

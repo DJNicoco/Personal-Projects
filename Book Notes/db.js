@@ -7,7 +7,7 @@ dotenv.config();
 
 const pool = new Pool({
   host: process.env.PGHOST || "localhost",
-  port: process.env.PGPORT ? Number(process.env.PGPORT) : 5432,
+  port: process.env.PGPORT ? Number(process.env.PGPORT) : 5433,
   database: process.env.PGDATABASE || "booknotes",
   user: process.env.PGUSER || "postgres",
   password: process.env.PGPASSWORD || ""

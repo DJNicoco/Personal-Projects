@@ -69,7 +69,7 @@ npm start
 
 ---
 
-## 🧪 Sample App Routes
+## 🧭 App Routes 
 
 | Method | Route               | Description                         |
 |-------:|---------------------|-------------------------------------|

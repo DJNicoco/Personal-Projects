@@ -29,22 +29,6 @@ A simple blog where users can create, view, edit, and delete posts. This version
 
 ---
 
-## ⚙️ Setup Instructions (Local)
-
-1) **Clone the repository**
-```bash
-git clone https://github.com/DJNicoco/book-notes-capstone.git
-cd book-notes-capstone
-```
-
-1) **Install & run**
-```bash
-npm install
-npm start              # node index.js
-# open http://localhost:3000
-```
-
-
 ## 🧭 App Routes 
 
 | Method | Route                | Description                |
@@ -58,18 +42,19 @@ npm start              # node index.js
 
 ---
 
-## 🖥️ App Preview – Screenshots (placeholders)
+## 🖥️ App Preview – Blog Web App 
 
-> Add screenshots to your repo and update the filenames below.
-
-### Home (List + Create)
+### Home
 ![Home](<Home Page.png>)
 
 ### View Post
-![View](<View Post.png>)
+![Add](<Adding Post.png>)
 
 ### Edit Post
 ![Edit](<Edit Post.png>)
+
+### Changed Title
+![alt text](<Changed Title of Post.png>)
 
 ---
 

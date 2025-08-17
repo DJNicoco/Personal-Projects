@@ -7,4 +7,4 @@ This repository documents my personal projects, inspired by capstone-style build
   ➜ [Read the project README](Book%20Notes/README-Book-Notes.md)
 
 - **Blog Web Application** — In-memory CRUD app (Express, EJS).  
-  ➜ [Read the project README](Blog%20Web%20Application/README-Blog-Web-App.md)
+  ➜ [Read the project README](Blog%20Web%20Application/README-Blog-Web-Application.md)
